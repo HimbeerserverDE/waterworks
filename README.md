@@ -51,6 +51,6 @@ If terminal 3 were immersed in water, no water would be transferred because term
 
 ![Figure 2](/screenshots/waterworks_figure_2.png)
 
-In this example termimal 3 is a pump, which acts as if it were an inlet located at an elevation 100 meters higher than it actually is. There are two potential outlets for water entering the system. Water is preferentially emitted from the *lowest* pressure outlet, so if terminal 3 was immersed in water it would be sent to terminal 2. However, if terminal 2 was contained in an enclosed space that had run out of room for additional water, the water would then be sent to the next-lowest outlet and come out of terminal 1.
+In this example terminal 3 is a pump, which acts as if it were an inlet located at an elevation 100 meters higher than it actually is. There are two potential outlets for water entering the system. Water is preferentially emitted from the *lowest* pressure outlet, so if terminal 3 was immersed in water it would be sent to terminal 2. However, if terminal 2 was contained in an enclosed space that had run out of room for additional water, the water would then be sent to the next-lowest outlet and come out of terminal 1.
 
 If terminal 1 was immersed, then water would transfer from it to terminal 2. Terminal 3 is an inlet, so water wouldn't come out of it.

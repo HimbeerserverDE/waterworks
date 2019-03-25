@@ -44,7 +44,7 @@ minetest.register_abm ({
 		local player_close = false
 		for _, player in ipairs(minetest.get_connected_players()) do
 			local player_pos = player:get_pos()
-			if math.abs(player_pos.x - pos.x) < 81 and math.abs(player_pos.z - pos.z) < 81 and math.abs(player_pos.y - pos.y) < 81 then
+			if math.abs(player_pos.x - pos.x) < 161 and math.abs(player_pos.z - pos.z) < 161 and math.abs(player_pos.y - pos.y) < 161 then
 				player_close = true
 				break
 			end			
