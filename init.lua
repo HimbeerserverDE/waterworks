@@ -6,6 +6,7 @@ dofile(modpath .. "/globalstep.lua")
 dofile(modpath .. "/network.lua")
 dofile(modpath .. "/execute.lua")
 dofile(modpath .. "/nodes.lua")
+dofile(modpath .. "/crafting.lua")
 
 if minetest.settings:get_bool("waterworks_make_default_water_non_renewable") then
 	local override_def = {liquid_renewable = false}
@@ -14,8 +15,8 @@ if minetest.settings:get_bool("waterworks_make_default_water_non_renewable") the
 
 end
 
--- For test purposes, this rebuilds pipe networks without needing to persist them.
--- May be useful later for fixing broken stuff.
+-- This rebuilds pipe networks whenever the map block is loaded.
+-- May be useful for fixing broken stuff.
 -- Note that this doesn't *remove* pipes that are inappropriately listed in the network,
 -- that may be tricky.
 --minetest.register_lbm({

@@ -88,9 +88,10 @@ minetest.register_node("waterworks:valve_off", {
         connect_left = {-0.5, -0.375, -0.375, -0.4375, 0.375, 0.375},
     },
 	paramtype = "light",
+	drops = "waterworks:valve_on",
 
 	is_ground_content = false,
-	groups = {oddly_breakable_by_hand = 1, waterworks_inert = 1},
+	groups = {oddly_breakable_by_hand = 1, waterworks_inert = 1, not_in_creative_inventory = 1},
 	sounds = default.node_sound_metal_defaults(),
 	on_rightclick = function(pos, node, clicker, itemstack, pointed_thing)
 		node.name = "waterworks:valve_on"

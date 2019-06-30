@@ -1,3 +1,5 @@
+local pressure_margin = 20
+
 local pipe_cache = {}
 
 local cardinal_dirs = {
@@ -124,10 +126,12 @@ waterworks.execute_pipes = function(net_index, net_capacity)
 	local inlets
 	local outlets
 	
-	if net.cache_valid then	
+	if net.cache_valid then
+		-- We don't need to recalculate, nothing about the pipe network has changed since last time
 		inlets = pipe_cache[net_index].inlets
 		outlets = pipe_cache[net_index].outlets
 	else
+		-- Find all the inlets and outlets and sort them by pressure
 		inlets = {}
 		if net.connected.inlet ~= nil then
 			for _, inlet_set in pairs(net.connected.inlet) do
@@ -148,6 +152,7 @@ waterworks.execute_pipes = function(net_index, net_capacity)
 		end
 		table.sort(outlets, sort_by_pressure)
 		
+		-- Cache the results
 		pipe_cache[net_index] = {}
 		pipe_cache[net_index].inlets = inlets
 		pipe_cache[net_index].outlets = outlets
@@ -171,7 +176,9 @@ waterworks.execute_pipes = function(net_index, net_capacity)
 		--minetest.debug("source: " .. dump(source))
 		--minetest.debug("sink: " .. dump(sink))
 		
-		if source.pressure >= sink.pressure then
+		-- pressure_margin allows us to check sources that are a little bit below sinks,
+		-- in case the extra pressure from their water depth is sufficient to force water through
+		if source.pressure + pressure_margin >= sink.pressure then 
 			local source_pos = find_source(source.target)
 			local sink_pos
 			if source_pos ~= nil then
