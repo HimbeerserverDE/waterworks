@@ -6,17 +6,17 @@ This mod includes an optional setting that disables ``liquid_renewable`` for def
 
 The [airtanks](https://github.com/minetest-mods/airtanks) mod can also be helpful for players who are interested in doing large-scale underwater construction projects.
 
-A pipe network is only active when a player is near one of the terminal nodes attached to it. The map blocks containing all terminal nodes for the network will be forceloaded as long as the pipe network is active, allowing water to be added or removed from remote locations, but note that water will be unable to flow into or out from those remote map blocks into adjoining blocks so it may behoove a player to visit these places to ensure continued flow.
+A pipe network is only active when a player is near one of the terminal nodes attached to it. The map blocks containing all terminal nodes for the network will be forceloaded as long as the pipe network is active, allowing water to be added or removed from remote locations, but note that water will be unable to flow into or out from those remote map blocks into adjoining blocks so it may behoove a player to visit these places from time to time to ensure continued flow.
 
 ## Pipes
 
-The core node type introduced by this mod is the pipe. When pipes are laid adjacent to each other they connect up to form a pipe network, to which inlets, outlets, and pumps can be connected. All contiguously pipes are part of the same network, and all terminal nodes connected to that network will be able to interact with each other.
+The core node type introduced by this mod is the pipe. When pipes are laid adjacent to each other they connect up to form a pipe network, to which inlets, outlets, and pumps can be connected. All contiguous pipes are part of the same network, and all terminal nodes connected to that network will be able to interact with each other through the pipes.
 
 Pipes automatically connect to other pipes through any of their six faces.
 
 ## Terminals
 
-Terminals can only be connected to a pipe network via one face, the side that by default is facing away from the player when they place the node in world. They interact with water only on the opposite face - the one facing toward the player when they place the node in world.
+Terminals can only be connected to a pipe network via one face, the side that by default is facing away from the player when they place the node in world. They interact with water only on the opposite face - the one facing toward the player when they place the node in world. Terminals require at least one pipe segment to connect to, they don't interact directly with each other.
 
 A screwdriver can be used to reorient terminals if you want one facing upward or downward.
 
