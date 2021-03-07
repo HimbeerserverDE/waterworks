@@ -23,10 +23,10 @@ local sort_by_pressure = function(first, second)
 end
 
 local valid_sink = function(node_name)
-	return node_name == "air" or node_name == "default:water_flowing"
+	return node_name == "air" or node_name == "mcl_core:water_flowing"
 end
 local valid_source = function(node_name)
-	return node_name == "default:water_source"
+	return node_name == "mcl_core:water_source"
 end
 
 -- breadth-first search passing through water searching for air or flowing water, limited to y <= pressure.
@@ -184,7 +184,7 @@ waterworks.execute_pipes = function(net_index, net_capacity)
 			if source_pos ~= nil then
 				sink_pos = flood_search_outlet(sink.target, math.max(source.pressure, source_pos.y))
 				if sink_pos ~= nil then
-					minetest.swap_node(sink_pos, {name="default:water_source"})
+					minetest.swap_node(sink_pos, {name="mcl_core:water_source"})
 					minetest.swap_node(source_pos, {name="air"})
 					count = count + 1
 				end

@@ -10,8 +10,8 @@ dofile(modpath .. "/crafting.lua")
 
 if minetest.settings:get_bool("waterworks_make_default_water_non_renewable") then
 	local override_def = {liquid_renewable = false}
-	minetest.override_item("default:water_source", override_def)
-	minetest.override_item("default:water_flowing", override_def)
+	minetest.override_item("mcl_core:water_source", override_def)
+	minetest.override_item("mcl_core:water_flowing", override_def)
 
 end
 
